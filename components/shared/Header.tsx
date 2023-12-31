@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
+import NavItems from "./NavItems";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
@@ -17,10 +19,19 @@ const Header = () => {
           />
         </Link>
 
+        <SignedIn>
+          <nav className="md:flex-between hidden w-full max-w-xs">
+            <NavItems />
+          </nav>
+        </SignedIn>
+
         <div className="flex w-32 justify-end gap-3">
+          {/* if the user is signed in, then show this block of code */}
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
+            <MobileNav />
           </SignedIn>
+          {/* if the user is signed out then use show this block of code */}
           <SignedOut>
             <Button asChild className="rounded-full" size="lg">
               <Link href="/sign-in">Login</Link>
