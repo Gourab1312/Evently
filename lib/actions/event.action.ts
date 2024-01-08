@@ -14,16 +14,16 @@ export const createEvent = async ({
   try {
     await connectToDatabase();
 
-    const oraganizer = await User.findById(userId);
+    const organizer = await User.findById(userId);
 
-    if (!oraganizer) {
+    if (!organizer) {
       throw new Error("organizer not found");
     }
 
     const newEvent = await Event.create({
       ...event,
       category: event.categoryId,
-      oraganizer: userId,
+      organizer: userId,
     });
 
     return JSON.parse(JSON.stringify(newEvent));
