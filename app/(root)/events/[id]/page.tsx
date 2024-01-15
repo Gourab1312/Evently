@@ -7,6 +7,7 @@ import React from "react";
 import Image from "next/image";
 import { formatDateTime } from "@/lib/utils";
 import Collection from "@/components/shared/Collection";
+import CheckoutButton from "@/components/shared/CheckoutButton";
 
 // we are using the params of the path that this page is in and then destructuring the param that we wanna get, in this case the id
 const EventDetails = async ({
@@ -55,7 +56,7 @@ const EventDetails = async ({
               </div>
             </div>
 
-            {/* Checkout button */}
+            <CheckoutButton event={event} />
 
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">
