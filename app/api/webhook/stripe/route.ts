@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { createOrder } from "@/lib/actions/order.actions";
 
 export async function POST(request: Request) {
-    // once a payment is successful stripe will invoke this function call and give us all the data in our body below
   const body = await request.text();
 
   const sig = request.headers.get("stripe-signature") as string;
